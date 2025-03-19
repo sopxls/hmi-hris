@@ -1,0 +1,672 @@
+body {
+  font-family: Arial, sans-serif;
+}
+.page-header {
+  display: flex;
+  justify-content: space-between; /* Keep space between left and center */
+  align-items: center;
+  padding: 10px 10px;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  padding-top: 15px;
+  padding-bottom: 25px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.header-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%); /* Center the logo */
+}
+
+.header-left .back-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "Inter";
+  color: #6d2323;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.header-left .back-btn i {
+  font-size: 18px;
+}
+
+.header-center .page-logo {
+  height: 35px;
+}
+
+.top-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 25px;
+}
+
+/* Left Section (Search Bar) */
+.left-section {
+  flex: 1; /* Allows it to take up space on the left */
+  display: flex;
+  align-items: center;
+}
+#searchBtn {
+  width: 40px;
+  height: 38px;
+  background: #6d2323;
+  color: white;
+  border: none;
+  border-radius: 5px 0 0 5px; /* Rounded left */
+  padding: 10px 10px;
+  cursor: pointer;
+}
+/* Search Bar (Beside Add Employee) */
+.search-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid gray;
+  border-radius: 5px;
+  overflow: hidden;
+  width: 200px;
+  margin-left: 20px;
+}
+.search-input {
+  font-size: 13px;
+  border: none;
+  padding: 8px 12px;
+  outline: none;
+  width: 140px;
+  height: 20px;
+}
+.filter-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid gray;
+  border-radius: 5px;
+  overflow: hidden;
+  min-width: 40px; /* Prevent button from shifting */
+  max-width: 40px; /* Initial state */
+  margin-left: 10px;
+  position: relative;
+  transition: max-width 0.3s ease;
+  justify-content: flex-start; /* Keep button in place */
+}
+.filter-container.expanded {
+  max-width: 200px; /* Expand smoothly */
+}
+#filterBtn {
+  width: 40px;
+  height: 38px;
+  background: #6d2323;
+  color: white;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 5px 0 0 5px;
+  flex-shrink: 0; /* Prevent shrinking */
+}
+#filterBtn:hover {
+  background: gray;
+}
+#filterBtn:focus,
+#filterDropdown:focus {
+  outline: none;
+  box-shadow: none;
+}
+#filterDropdown {
+  flex: 1;
+  border: none;
+  background: white;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 0 5px 5px 0;
+  text-align: left;
+  font-size: 14px;
+  display: none;
+  margin-right: 5px;
+}
+.filter-container.expanded #filterDropdown {
+  display: block;
+}
+
+/* Right Section (Add Employee & Export Button) */
+.right-section {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between Add Employee & Export button */
+}
+/* Add Employee Button */
+.open-modal-btn {
+  background: #6d2323;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 15px;
+  cursor: pointer;
+  width: 140px;
+  border-radius: 5px;
+  margin-left: 20px;
+}
+
+.open-modal-btn:hover {
+  background: gray;
+}
+/* Ensures buttons remain vertically aligned */
+.open-modal-btn,
+#exportBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Fix the export button alignment */
+.export-container {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+#exportBtn {
+  width: 40px; /* Adjust size as needed */
+  height: 38px; /* Same as width for a square */
+  background: #6d2323;
+  color: white;
+  border: none;
+  font-size: 18px; /* Adjust icon size */
+  cursor: pointer;
+  border-radius: 5px; /* Adjust or remove for sharp edges */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centers icon inside */
+  padding: 0; /* Prevents padding from affecting size */
+}
+#exportBtn:hover {
+  background: gray;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background: white;
+  border: 1px solid gray;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  z-index: 1000;
+  width: 150px;
+  margin-right: 20px;
+}
+
+.dropdown-content button {
+  background: none;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dropdown-content button:hover {
+  background: lightgray;
+}
+
+/* Show dropdown when export button is clicked */
+.export-container.show .dropdown-content {
+  display: block;
+}
+
+/* PRINT HIDE ITEMS */
+@media print {
+  .header-left,
+  .header-right {
+    display: none; /* Hide BACK and PRINT buttons when printing */
+  }
+  .open-modal-btn,
+  .search-btn,
+  .search-container,
+  .search-input,
+  th:nth-child(7), /* Hides the header of the actions column */
+  td:nth-child(7)  /* Hides the data cells of the actions column */ {
+    display: none;
+  }
+}
+@media print {
+  th {
+    background-color: rgb(162, 160, 160) !important; /* Keep the header color */
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+.error {
+  border: 1.5px solid red !important;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 800px;
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  overflow-y: auto;
+  max-height: 80vh;
+}
+#profilePicPreview {
+  display: block; /* Ensures the image stays on its own line */
+  margin-bottom: 10px; /* Adds space below the image */
+}
+
+#removePicBtn {
+  display: block !important; /* Forces the button to appear */
+  visibility: visible !important; /* Ensures it’s not hidden */
+  opacity: 1 !important; /* Ensures it’s not faded */
+  width: auto; /* Adjust width */
+  padding: 5px 10px;
+  font-size: 10px;
+  background-color: #6d2323;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between; /* Pushes elements to opposite sides */
+  align-items: center; /* Aligns them in the center */
+}
+
+.close {
+  background: none;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+.close:hover {
+  background-color: #6d2323;
+  color: white;
+}
+.show {
+  display: block;
+}
+.section-box {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  border-radius: 8px; /* Rounded corners */
+  margin-bottom: 20px; /* Space between sections */
+  background: #efefef; /* Light background */
+}
+.section-box h3 {
+  margin-top: 0;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: "Inter", serif;
+  color: #6d2323; /* Same as submit button color */
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+.section-title {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  position: relative;
+}
+.section-title::after {
+  content: "";
+  flex-grow: 1;
+  height: 1px;
+  background-color: black;
+  margin-left: 10px; /* Space between text and line */
+}
+.row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  width: 100%;
+}
+.form-group {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 2px; /* Adds consistent spacing between fields */
+}
+
+.form-group label {
+  display: block;
+  width: 100%;
+  font-weight: bold;
+  margin-bottom: 0px;
+  font-size: 13px;
+  font-family: "Inter", serif;
+}
+
+.form-group input,
+.form-group select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 10px;
+  font-size: 11px;
+}
+.addEntry {
+  background: #6d2323;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 13px;
+  cursor: pointer;
+  width: 140px;
+  border-radius: 5px;
+}
+.email-field,
+.emergency-contact {
+  flex: 1;
+}
+.address-field,
+.emergency-address {
+  flex: 2;
+}
+.checkbox-group {
+  display: flex;
+  align-items: center; /* Ensures checkbox and text are on the same line */
+  margin-bottom: 10px;
+  gap: 5px; /* Adds spacing between checkbox and text */
+}
+.checkbox-group label {
+  font-size: 13px;
+}
+input[type="checkbox"] {
+  width: 11px; /* Adjust width */
+  height: 11px; /* Adjust height */
+  transform: scale(1.3); /* Increases size */
+  cursor: pointer; /* Makes it clear it's clickable */
+}
+.btn-primary,
+.btn-danger {
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+.submit-btn {
+  background-color: #6d2323;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 20px;
+  transition: background 0.3s;
+}
+.submit-btn:hover {
+  background-color: gray;
+}
+/* Cancel Button */
+.cancel-btn {
+  background-color: lightgray;
+  color: #6d2323;
+  border: none;
+  padding: 10px 10px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 20px;
+  transition: background 0.3s;
+}
+.cancel-btn:hover {
+  background-color: darkgray;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end; /* Pushes buttons to the right */
+  gap: 10px; /* Adds spacing between buttons */
+  margin-top: 20px; /* Adjust spacing from form */
+}
+.table-container {
+  width: 90%; /* Adjust to fit the screen better */
+  max-width: 1400px; /* Prevents unnecessary scrolling */
+  background: rgb(219, 213, 213);
+  border-radius: 10px;
+  padding: 15px; /* More space inside */
+  margin: 10px auto; /* More spacing from top and center */
+  overflow-x: auto; /* Enables horizontal scrolling only when needed */
+}
+.dept-title {
+  text-align: center;
+  font-family: "Inter";
+  font-weight: bold;
+  font-size: 20px;
+  color: black;
+}
+/* Employee Table */
+#employeeTable {
+  width: 100%; /* Makes sure it adapts to the container */
+  max-width: 1350px; /* Prevents table from overflowing */
+  border-collapse: collapse; /* No gaps between borders */
+  background: white;
+  border: 1px solid #000000; /* Outer border */
+  margin-top: 10px;
+}
+
+/* Table Header */
+#employeeTable th {
+  color: black;
+  background: rgb(162, 160, 160);
+  padding: 10px;
+  font-size: 13px;
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid black; /* Adds borders between headers */
+}
+
+/* Table Rows */
+#employeeTable td {
+  color: black;
+  padding: 5px;
+  font-size: 12px;
+  text-align: center;
+  border: 1px solid black; /* Adds borders between columns */
+}
+
+/* Alternating Row Colors */
+#employeeTable tbody tr:nth-child(even) {
+  background: #f5f5f5; /* Light gray for better readability */
+}
+
+/* Specific Column Widths */
+#employeeTable th:nth-child(1),
+#employeeTable td:nth-child(1) {
+  width: 50px; /* No. - Fits 3 digits */
+}
+
+#employeeTable th:nth-child(2),
+#employeeTable td:nth-child(2) {
+  width: 90px; /* EMP ID - Adjusted for readability */
+}
+
+#employeeTable th:nth-child(3),
+#employeeTable td:nth-child(3) {
+  width: 30%; /* Adjust percentage as needed */
+  min-width: 120px; /* Ensure it doesn't get too small */
+}
+
+#employeeTable th:nth-child(4),
+#employeeTable td:nth-child(4) {
+  width: 300px; /* Position */
+}
+
+#employeeTable th:nth-child(5),
+#employeeTable td:nth-child(5) {
+  width: 130px; /* Type */
+}
+
+#employeeTable th:nth-child(6),
+#employeeTable td:nth-child(6) {
+  width: 150px; /* Date Hired */
+}
+
+#employeeTable th:nth-child(7),
+#employeeTable td:nth-child(7) {
+  width: 80px; /* Status */
+}
+#employeeTable th:nth-child(8),
+#employeeTable td:nth-child(8) {
+  width: 80px; /* Actions */
+}
+
+/* Button Styles */
+#employeeTable button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 0 5px;
+}
+
+/* Buttons inside the Actions column */
+#editBtn #deleteBtn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+#editBtn {
+  color: blue;
+}
+#deleteBtn {
+  color: red;
+}
+/* EMPLOYEE DETAIL MODAL STYLE */
+.employee-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+}
+.employee-modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 700px;
+  margin: 5% auto;
+  position: relative;
+}
+.employee-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.employee-modal-header h2 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+.employee-status-badge {
+  background-color: green;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 18px;
+  font-size: 13px;
+  position: absolute;
+  top: 55px; /* Adjust this to place it below the X */
+  right: 0;
+  z-index: 10;
+}
+
+#employee-print-btn {
+  background-color: #6d2323;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 15px;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  z-index: 10;
+  margin-bottom: 5px;
+}
+.employee-ekis-btn {
+  background: none;
+  border: none;
+  font-size: 35px;
+  cursor: pointer;
+}
+.employee-ekis-btn:hover {
+  background-color: #6d2323;
+  color: white;
+}
+.employee-close-btn {
+  background-color: lightgray;
+  color: #6d2323;
+  border: none;
+  padding: 10px 10px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 20px;
+  right: 0;
+  z-index: 0;
+  transition: background 0.3s;
+}
+.employee-close-btn:hover {
+  background-color: darkgray;
+}
+.employee-section-first {
+  margin-top: 50px;
+}
+.employee-section {
+  margin-top: 10px;
+}
+.employee-section-title {
+  background-color: rgb(162, 160, 160);
+  font-size: 15px;
+  color: black;
+  padding: 8px;
+  font-weight: bold;
+  text-align: center;
+}
+.employee-section-content {
+  background: #f9f9f9;
+  font-size: 13px;
+  padding: 3px;
+  display: grid;
+  gap: 3px;
+}
+.employee-grid-2 {
+  grid-template-columns: 1fr 1fr;
+}
+.employee-section-content p {
+  margin: 3px 0; /* reduces space between fields */
+  padding: 3px 0; /* optional: to control padding inside each field */
+}
