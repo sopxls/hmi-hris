@@ -1,0 +1,1016 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body,
+  html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: white;
+  }
+  .container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+  }
+  .index-left {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .index-logo {
+    width: 450px;
+  }
+  .index-logo-container {
+    text-align: center;
+  }
+  .logo-text {
+    margin-top: 5px;
+    font-size: 20px;
+    color: #6d2323;
+    text-align: left;
+    width: 100%;
+    padding-left: 10px;
+  }
+  .index-right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .index-right-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 350px;
+  }
+  .welcome-text {
+    font-size: 30px;
+    font-family: "Markazi Text";
+    color: #9e213d;
+    align-self: flex-end;
+    text-align: right;
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 350px;
+  }
+  .login-form-container {
+    width: 350px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+    border: 1px solid gray;
+    margin-top: 10px;
+  }
+  .login-form-group {
+    margin-bottom: 15px;
+  }
+  .login-form-group label {
+    font-size: 14px;
+    color: black;
+    display: block;
+    margin-bottom: 5px;
+  }
+  .login-form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .login-form-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #9e213d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .login-form-btn:hover {
+    background-color: gray;
+  }
+  .error {
+    font-weight: bold;
+    width: 100%;
+    padding: 5px;
+    color: red;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  .index-footer {
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    color: black;
+    padding: 8px 0;
+    position: fixed;
+    bottom: 0;
+  }
+  .forgot p{
+    font-size: 10px;
+  }
+  /* DASHBOARD (VISION & MISSION) */
+  .vision-container {
+    box-sizing: border-box;
+  }
+  .vision-content {
+    float: left;
+    margin-left: 80px;
+    margin-top: 50px;
+    border-radius: 70px;
+    border: solid #6d2323;
+    width: 40%;
+    line-height: 200%;
+  }
+  .vision-content h2 {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 50px;
+    font-size: 35px;
+    color: #6d2323;
+  }
+  .vision-content p {
+    text-align: justify;
+    text-indent: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 110px;
+  }
+  .mission-container {
+    box-sizing: border-box;
+  }
+  .mission-content {
+    float: right;
+    margin-right: 80px;
+    margin-top: 50px;
+    border-radius: 70px;
+    border: solid #6d2323;
+    width: 40%;
+    line-height: 200%;
+  }
+  .mission-content h2 {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    font-size: 35px;
+    color: #6d2323;
+  }
+  .mission-content p {
+    text-align: justify;
+    text-indent: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+  
+  /* DASHBOARD - NAVBAR */
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    padding: 10px 20px;
+    border-bottom: 3px solid #6d2323;
+    font-family: "Inter", sans-serif;
+  }
+  .navbar .logo {
+    height: 40px;
+    width: auto;
+  }
+  .nav-links {
+    display: flex;
+    gap: 20px;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: #6d2323;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px 15px;
+    transition: 0.3s ease-in-out;
+  }
+  .nav-links a:hover {
+    background-color: #6d2323;
+    color: white;
+    border-radius: 10px;
+  }
+  .nav-links a,
+  .dropdown {
+    display: flex;
+    align-items: center;
+    padding: 5px 5px;
+    text-decoration: none;
+    color: #6d2323;
+    font-weight: bold;
+    font-size: 16px;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  /* DASHBOARD - DEPT DROPDOWN MENU */
+  .dropdown {
+    position: relative;
+  }
+  .dropdown > a {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background-color: white;
+    min-width: 200px;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    padding: 5px 0;
+    z-index: 10;
+  }
+  .dropdown-menu a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #6d2323;
+    font-weight: bold;
+    font-size: 14px;
+    transition: 0.3s ease-in-out;
+    white-space: nowrap;
+  }
+  .dropdown-menu a:hover {
+    background-color: #9e213d;
+    color: white;
+    border-radius: 3px;
+  }
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  /* DEPT PAGES HEADER */
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+  }
+  .header-left,
+  .header-center,
+  .header-right {
+    display: flex;
+    align-items: center;
+  }
+  .header-left .back-btn,
+  .header-right .print-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "Inter", serif;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .header-left .back-btn i,
+  .header-right .print-btn i {
+    font-size: 18px;
+  }
+  .header-center .page-logo {
+    height: 30px;
+  }
+  .header-left {
+    flex: 1;
+    justify-content: flex-start;
+  }
+  .header-center {
+    flex: 1;
+    justify-content: center;
+  }
+  .header-right {
+    flex: 1;
+    justify-content: flex-end;
+  }
+  /* ACCOUNT SETTINGS */
+  .account-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+  }
+  .account-header-left,
+  .account-header-center{
+    display: flex;
+    align-items: center;
+  }
+  .account-header-left .back-btn{
+    background: none;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "Inter", serif;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .account-header-left .back-btn i{
+    font-size: 18px;
+  }
+  .account-header-center .page-logo {
+    height: 30px;
+  }
+  .account-header-left {
+    flex: 1;
+    justify-content: flex-start;
+  }
+  .account-header-center {
+    flex: 1;
+    margin-right: 150px;
+  }
+  .setting-container {
+    width: 100%;
+    max-width: 1000px;
+    min-height: 300px;
+    height: auto; /* Allows it to expand based on content */
+    margin: 20px auto; /* Adds gap on all sides & centers it */
+    margin-top: 30px;
+    padding: 10px; /* Inner spacing */
+    background: #d9d9d9; /* Light beige background */
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  .setting-form{
+    margin: auto;
+  }
+  .setting-form h2{
+    text-align: center;
+    font-family: "Markazi Text";
+    font-weight: bold;
+    font-size: 25px;
+    color: #6d2323;
+  }
+  .setting-form p{
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+    color: black;
+    margin-top: 5px;
+  }
+  .setting-form label{
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+    display: block;
+    margin: 15px 3% auto;
+  }
+  .setting-form input{
+    width: 90%;
+    padding: 10px;
+    font-size: 14px;
+    border: 2px solid #6d2323;
+    border-radius: 5px;
+    margin: 15px 3% auto; 
+  }
+  .setting-form button{
+    width: 30%;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: bold; 
+    border-radius: 5px;
+    margin: 30px 35% auto; 
+    background: #6d2323;
+    color: white;
+    cursor: pointer;
+  }
+  .setting-form button:hover{
+    background: white;
+    color: black;
+  }
+  /* PRINT HIDE ITEMS */
+  @media print {
+    .header-left,
+    .header-right {
+      display: none; /* Hide BACK and PRINT buttons when printing */
+    }
+    .add-btn,
+    .search-btn,
+    .search-input,
+    .actions {
+      display: none;
+    }
+  }
+  /* TEST */
+  
+  .dept-title {
+    text-align: center;
+    font-family: "Markazi Text";
+    font-weight: bold;
+    font-size: 20px;
+    color: #6d2323;
+  }
+  .page-container {
+    width: 100%;
+    max-width: 1200px;
+    min-height: 300px;
+    height: auto; /* Allows it to expand based on content */
+    margin: 20px auto; /* Adds gap on all sides & centers it */
+    margin-top: 5px;
+    padding: 20px; /* Inner spacing */
+    background: #d9d9d9; /* Light beige background */
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  /* Adjusts the top-section inside */
+  .top-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px; /* Space below the buttons */
+  
+    margin: 20px 20px;
+  }
+  
+  /* Add Button */
+  .add-btn {
+    background: #6d2323;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .add-btn:hover {
+    background: GRAY;
+  }
+  
+  /* Search Bar */
+  .search-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .search-input {
+    border: none;
+    padding: 8px 12px;
+    outline: none;
+    width: 200px;
+  }
+  
+  .search-btn {
+    background: #6d2323;
+    box-shadow: 0 2px 6px GRAY(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+  }
+  
+  .search-btn:hover {
+    background: GRAY;
+  }
+  /* Table Container - Inside main-container WITHOUT rounded corners */
+  .table-container {
+    width: 100%;
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 5px; /* Adds spacing from the top section */
+  }
+  /* Table Styling */
+  table {
+    width: 100%;
+    border-collapse: collapse; /* Ensures no gaps between borders */
+    background: white;
+    border: 1px solid #000000; /* Outer border */
+  }
+  
+  /* Table Header */
+  th {
+    color: black;
+    background: rgb(199, 193, 193);
+    padding: 7px;
+    text-align: center; /* Centers text */
+    font-weight: bold;
+    border: 1px solid #ccc; /* Adds borders between headers */
+  }
+  
+  /* Table Rows */
+  td {
+    color: black;
+    padding: 7px;
+    text-align: center; /* Centers text in all columns */
+    border: 1px solid #ccc; /* Adds borders between columns */
+    font-weight: normal;
+  }
+  
+  /* Specific Column Widths */
+  th:nth-child(1),
+  td:nth-child(1) {
+    width: 50px; /* No. - Fits 3 digits */
+  }
+  th:nth-child(2),
+  td:nth-child(2) {
+    width: 70px; /* No. - Fits 5 digits */
+  }
+  
+  th:nth-child(3),
+  td:nth-child(3) {
+    width: 350px; /* Name - Longer space */
+  }
+  th:nth-child(4),
+  td:nth-child(4) {
+    width: 180px; /* Name - Longer space */
+  }
+  th:nth-child(5),
+  td:nth-child(5) {
+    width: 160px; /* Name - Longer space */
+  }
+  th:nth-child(6),
+  td:nth-child(6) {
+    width: 130px; /* Name - Longer space */
+  }
+  
+  th:nth-child(7),
+  td:nth-child(7) {
+    width: 80px; /* Actions - Fits at least 8 letters */
+  }
+  
+  /* Buttons inside the Actions column */
+  .edit-btn,
+  .delete-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  /* for responsiveness of the system :3*/
+  @media screen and (max-width: 768px) {
+    .container,
+    .vision-container,
+    .mission-container,
+    .vision-content,
+    .mission-content,
+    .vision-content h2,
+    .mission-content h2,
+    .vision-content p,
+    .mission-content p {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+  .index-left,
+  .index-right {
+    width: 100%;
+  }
+  .index-logo {
+    width: 400px;
+  }
+  .login-form-container {
+    width: 100%;
+  }
+  /* DEPT PAGES HEADER */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+}
+.header-left,
+.header-center,
+.header-right {
+  display: flex;
+  align-items: center;
+}
+.header-left .back-btn,
+.header-right .print-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "Inter";
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.header-left .back-btn i,
+.header-right .print-btn i {
+  font-size: 18px;
+}
+.header-center .page-logo {
+  height: 30px;
+}
+.header-left {
+  flex: 1;
+  justify-content: flex-start;
+}
+.header-center {
+  flex: 1;
+  justify-content: center;
+}
+.header-right {
+  flex: 1;
+  justify-content: flex-end;
+}
+/* PRINT HIDE ITEMS */
+@media print {
+  .header-left,
+  .header-right {
+    display: none; /* Hide BACK and PRINT buttons when printing */
+  }
+  .add-employee-btn,
+  .search-btn,
+  .search-input,
+  .actions {
+    display: none;
+  }
+}
+/* MODAL TEST */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow-y: auto; /* Ensures modal scrolls if needed */
+}
+
+.modal-content {
+  background: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  max-height: 500px; /* Prevents it from going too low */
+  overflow-y: auto; /* Adds scrollbar when content overflows */
+  padding: 20px;
+  border-radius: 10px;
+}
+.modal-content h2 {
+  font-size: 20px;
+  color: #6d2323;
+  margin-bottom: 10px;
+}
+/* DIFF LENGTH OF FIELD */
+.section-box {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  border-radius: 8px; /* Rounded corners */
+  margin-bottom: 20px; /* Space between sections */
+  background: #efefef; /* Light background */
+}
+
+.section-box h3 {
+  margin-top: 0;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "Inter";
+  color: black; /* Same as submit button color */
+  border-bottom: 1px solid black;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+.form-group.row {
+  font-size: 15px;
+  display: flex;
+  gap: 15px;
+}
+
+.form-group.row .col {
+  flex: 1;
+  min-width: 150px;
+}
+
+/* Adjust specific field sizes */
+.empName {
+  flex: 3;
+}
+.empSex {
+  flex: 1;
+}
+.empBirthdate{
+  flex: 1;
+}
+.empEmail{
+  flex: 2;
+}
+.empContactNo {
+  flex: 1;
+}
+.empAddress{
+  flex: 2;
+}
+.empCivilStatus,
+.empReligion {
+  flex: 1;
+}
+.empPRCNo,
+.empPRCValidity {
+  flex: 1;
+}
+.empHealthPermit,
+.empHPValidity {
+  flex: 1;
+}
+.empPosition {
+  flex: 2;
+}
+.empID {
+  flex: 1;
+}
+.empStatus {
+  flex: 1;
+}
+.empDept {
+  flex: 2;
+}
+.empStartDate,
+.empEndDate {
+  flex: 1;
+}
+.empSalary,
+.bankacc {
+  flex: 1;
+}
+
+.empPAGIBIG,
+.empSSS{
+  flex: 1;
+}
+.empPhilhealth,
+.empTIN {
+  flex: 1;
+}
+
+/* Close button */
+.close {
+  float: right;
+  font-size: 35px;
+  cursor: pointer;
+}
+
+/* Section box styles */
+.section {
+  background: #f8f8f8; /* Light gray background */
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+}
+
+/* Make inputs look uniform */
+input,
+select {
+  width: 100%;
+  padding: 5px;
+  margin: 5px 0;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+/* Button Container - Aligns buttons */
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Save Button */
+#submitBtn {
+  background-color: #6d2323;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 20px;
+  transition: background 0.3s;
+}
+
+#submitBtn:hover {
+  background-color: gray;
+}
+
+/* Cancel Button */
+#cancelEmployee {
+  background-color: lightgray;
+  color: #6d2323;
+  border: none;
+  padding: 10px 10px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 20px;
+  transition: background 0.3s;
+}
+
+#cancelEmployee:hover {
+  background-color: darkgray;
+}
+
+.dept-container{
+  text-align: center;
+
+}
+.dept-title {
+  text-align: center;
+  font-family: "Markazi Text";
+  font-weight: bold;
+  font-size: 30px;
+  color: #6d2323;
+}
+.page-container {
+  width: 100%;
+  max-width: 1200px;
+  min-height: 300px;
+  height: auto; /* Allows it to expand based on content */
+  margin: 20px auto; /* Adds gap on all sides & centers it */
+  margin-top: 5px;
+  padding: 10px; /* Inner spacing */
+  background: #d9d9d9; /* Light beige background */
+  border-radius: 10px;
+}
+
+/* Adjusts the top-section inside */
+.top-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px; /* Space below the buttons */
+
+  margin: 20px 20px;
+}
+
+/* Add Button */
+.add-employee-btn {
+  background: #6d2323;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.add-employee-btn:hover {
+  background: GRAY;
+}
+
+/* Search Bar */
+.search-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.search-input {
+  border: none;
+  padding: 8px 12px;
+  outline: none;
+  width: 200px;
+  height: 20px;
+}
+.search-btn {
+  background: #6d2323;
+  box-shadow: 0 2px 6px GRAY(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+.search-btn:hover {
+  background: GRAY;
+}
+/* Table Container - Inside main-container WITHOUT rounded corners */
+.table-container {
+  width: 100%;
+  background: white;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 5px; /* Adds spacing from the top section */
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse; /* Ensures no gaps between borders */
+  background: white;
+  border: 1px solid #000000; /* Outer border */
+}
+
+/* Table Header */
+th {
+  color: black;
+  background: rgb(199, 193, 193);
+  padding: 7px;
+  font-size: 13px;
+  text-align: center; /* Centers text */
+  font-weight: bold;
+  border: 1px solid rgb(93, 91, 91); /* Adds borders between headers */
+}
+
+/* Table Rows */
+td {
+  color: black;
+  padding: 5px;
+  font-size: 12px;
+  text-align: center; /* Centers text in all columns */
+  border: 1px solid rgb(93, 91, 91); /* Adds borders between columns */
+  font-weight: normal;
+}
+
+/* Specific Column Widths */
+th:nth-child(1),
+td:nth-child(1) {
+  width: 50px; /* No. - Fits 3 digits */
+}
+th:nth-child(2),
+td:nth-child(2) {
+  width: 70px; /* No. - Fits 5 digits */
+}
+th:nth-child(3),
+td:nth-child(3) {
+  width: 350px; /* Name - Longer space */
+}
+th:nth-child(4),
+td:nth-child(4) {
+  width: 180px; /* Name - Longer space */
+}
+th:nth-child(5),
+td:nth-child(5) {
+  width: 160px; /* Name - Longer space */
+}
+th:nth-child(6),
+td:nth-child(6) {
+  width: 130px; /* Name - Longer space */
+}
+th:nth-child(7),
+td:nth-child(7) {
+  width: 80px; /* Actions - Fits at least 8 letters */
+}
+
+/* Buttons inside the Actions column */
+.edit-btn,
+.delete-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+.edit-btn {
+  color: blue;
+  padding-right: 13px;
+}
+.delete-btn {
+  color: red;
+}
+
+/* for responsiveness of the system :3*/
+@media screen and (max-width: 768px) {
+  .container,
+  .vision-container,
+  .mission-container,
+  .vision-content,
+  .mission-content,
+  .vision-content h2,
+  .mission-content h2,
+  .vision-content p,
+  .mission-content p {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+.index-left,
+.index-right {
+  width: 100%;
+}
+.index-logo {
+  width: 400px;
+}
+.login-form-container {
+  width: 100%;
+}
